@@ -39,7 +39,32 @@ public class Main{
                         System.out.println("\t3. Flee");
 
                         String input = in.nextLine();
+                        if (input.equals("1")) {
+                                int damageDelt = rand.nextInt(AttackDamage);
+                                int damageTaken = rand.nextInt(maxAttackDamage);
+
+                                enemyHealth -= damageDelt;
+                                health -= damageTaken;
+
+                                System.out.println("\t> you strike the " + enemy + " for " + damageDelt + " damage."); 
+                                System.out.println("\t> you recive " + damageTaken + "in retaliation.");
+
+                                if (health < 1) {
+                                        System.out.println("\tF in the chat for you. you died.");
+                                        break;
+                                } 
+                        }
+                        if (input.equals("2")) {
+                           if(numHeathPots > 0) {
+                                health += healthPotHealAmmount;
+                                numHeathPots -= 1;
+                                System.out.println("\t> You drink one health potion. healed for " + healthPotHealAmmount)
+                           }     
+                        }
+                        if (input.equals("3")) {
+                               System.out.println("\t> You Fled!"); 
+                        }
                 }
         }
-	}
+        }
 }
